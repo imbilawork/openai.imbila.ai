@@ -1,0 +1,11 @@
+name = "openai-academy"
+compatibility_date = "2026-03-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "./public"
+
+[ai]
+binding = "AI"
+
+[vars]
+RATE_LIMIT_PER_MINUTE = "20"
+ACADEMY = "openai"
