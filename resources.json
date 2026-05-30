@@ -1,0 +1,15 @@
+{
+  "academy": "OpenAI",
+  "pov": "Imbila.AI is the consulting & IP arm to the 2nth.ai execution platform. For OpenAI we do not duplicate official material — we curate the best free, official sources and recommend them in a sensible order. Learning is on imbila.ai; building, models and infrastructure live on 2nth.ai.",
+  "resources": [
+    {"id": "academy", "title": "OpenAI Academy", "url": "https://academy.openai.com/", "kind": "course hub", "level": "all", "cost": "free", "topics": ["fundamentals", "chatgpt", "api", "agents"], "whenToUse": "The best starting point for almost everyone — official courses, live sessions and videos for every level."},
+    {"id": "chatgpt", "title": "ChatGPT", "url": "https://chatgpt.com/", "kind": "tool", "level": "beginner", "cost": "free tier", "topics": ["chatgpt", "productivity"], "whenToUse": "Learn by using it on your real work — projects, custom GPTs, voice, vision, deep research."},
+    {"id": "prompting", "title": "Prompt Engineering Guide", "url": "https://platform.openai.com/docs/guides/prompt-engineering", "kind": "guide", "level": "intermediate", "cost": "free", "topics": ["prompting"], "whenToUse": "When your results are inconsistent and you want reliable, structured output."},
+    {"id": "docs", "title": "OpenAI API Platform & Docs", "url": "https://platform.openai.com/docs", "kind": "docs", "level": "intermediate", "cost": "free docs", "topics": ["api", "build"], "whenToUse": "When you start building OpenAI into your own apps and need the full reference."},
+    {"id": "cookbook", "title": "OpenAI Cookbook", "url": "https://cookbook.openai.com/", "kind": "code examples", "level": "intermediate", "cost": "free", "topics": ["api", "build", "code"], "whenToUse": "When you want working code recipes for common API tasks."},
+    {"id": "agents", "title": "OpenAI Agents SDK", "url": "https://openai.github.io/openai-agents-python/", "kind": "docs", "level": "advanced", "cost": "free", "topics": ["agents", "build", "automation"], "whenToUse": "When you are ready to build autonomous, multi-agent systems with tool use."},
+    {"id": "explainer", "title": "GPT explainer (know.2nth.ai)", "url": "https://know.2nth.ai/explainers/agents/gpt", "kind": "explainer", "level": "all", "cost": "free", "topics": ["concepts", "architecture"], "whenToUse": "For an independent, fact-checked deep-dive on how the GPT/OpenAI stack works and its trade-offs."},
+    {"id": "claude4d", "title": "Imbila Claude 4D Academy", "url": "https://claude.imbila.ai", "kind": "interactive course", "level": "all", "cost": "free", "topics": ["ai-fluency", "interactive", "tutor", "assessment"], "whenToUse": "If they want a guided, interactive Imbila course (lessons + AI tutor + assessments) rather than self-serve links — this is our flagship, built on the 4D AI-Fluency framework."},
+    {"id": "build2nth", "title": "2nth.ai", "url": "https://2nth.ai", "kind": "execution platform", "level": "all", "cost": "varies", "topics": ["build", "deploy", "infrastructure"], "whenToUse": "When they have learned enough and want to actually build, deploy or run AI in production — that is the execution platform."}
+  ]
+}
