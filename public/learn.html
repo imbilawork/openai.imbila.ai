@@ -182,7 +182,6 @@ a{color:inherit;text-decoration:none}
 
 <footer class="ft"><div class="ft-inner"><div class="ft-brand"><img src="https://www.imbila.ai/content/images/2026/03/imbila-mark-traced.svg" alt="Imbila" style="width:22px;height:22px"><span>Imbila<em>.AI</em></span></div><div class="ft-links"><a href="https://platform.imbila.ai">Imbila.AI</a><a href="https://demo.imbila.ai">Demos</a><a href="https://claude.imbila.ai">Claude Academy</a><a href="https://google.imbila.ai">Google Academy</a><a href="https://imbila.ai">Blog</a></div></div></footer>
 
-<script src="https://platform.imbila.ai/auth-widget.js"></script>
 <script>
 var MODULES = [
   {
@@ -239,7 +238,8 @@ var MODULES = [
 
 var currentModule = 0;
 var chatHistory = [];
-var isAuthenticated = false;
+// Open access: all modules, AI tutor and quizzes are free. No sign-in required.
+var isAuthenticated = true;
 var quizAnswers = {};
 
 // Init
@@ -444,7 +444,7 @@ async function sendMessage() {
           sendBtn.disabled = false;
           // Deduct tokens for tutor usage
           if (window.ImbilaAuth) {
-            ImbilaAuth.deductTokens(500, '@cf/google/gemma-3-12b-it', 'openai-academy', 'AI tutor: ' + MODULES[currentModule].title);
+            ImbilaAuth.deductTokens(500, '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'openai-academy', 'AI tutor: ' + MODULES[currentModule].title);
           }
           return;
         }
@@ -527,7 +527,7 @@ async function startQuiz() {
     renderQuiz(data.questions);
     // Deduct tokens for assessment
     if (window.ImbilaAuth) {
-      ImbilaAuth.deductTokens(300, '@cf/google/gemma-3-12b-it', 'openai-academy', 'Assessment: ' + MODULES[currentModule].title);
+      ImbilaAuth.deductTokens(300, '@cf/meta/llama-3.3-70b-instruct-fp8-fast', 'openai-academy', 'Assessment: ' + MODULES[currentModule].title);
     }
   }).catch(function(err) {
     container.innerHTML = '<div class="quiz-title">Could not generate quiz</div><p style="font-size:14px;color:var(--g5)">The AI assessment service is temporarily unavailable. Please try again in a moment.</p>';

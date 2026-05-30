@@ -38,7 +38,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const systemPrompt = `Generate a quiz for the OpenAI module: ${module}. Return ONLY valid JSON: {"questions": [{"question": "...", "options": ["A. ...", "B. ...", "C. ...", "D. ..."], "correct": 0, "explanation": "..."}]}. 4 practical questions about OpenAI tools and concepts.`;
 
   try {
-    const result = await env.AI.run("@cf/google/gemma-3-12b-it", {
+    const result = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
       messages: [
         { role: "system", content: systemPrompt },
         {
@@ -46,6 +46,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           content: `Generate a 4-question quiz for the module: ${module}`,
         },
       ],
+      max_tokens: 1024,
     });
 
     let quiz;
