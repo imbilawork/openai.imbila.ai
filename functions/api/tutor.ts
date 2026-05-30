@@ -13,6 +13,7 @@ interface Env {
 interface TutorRequest {
   message: string;
   module: string;
+  lesson?: string;
   history?: Array<{ role: string; content: string }>;
 }
 
@@ -29,7 +30,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     });
   }
 
-  const { message, module, history = [] } = body;
+  const { message, module, history = [], lesson } = body;
 
   if (!message || !module) {
     return new Response(
@@ -38,7 +39,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     );
   }
 
-  const systemPrompt = `You are an AI tutor for the Imbila.AI OpenAI Academy. You teach mastery of ChatGPT, the OpenAI API, DALL-E, and AI agents. Currently teaching: ${module}. Be practical, demonstrate real prompt patterns, reference South African business use cases. Keep answers 2-3 paragraphs. Encourage trying things in ChatGPT.`;
+  const lessonBlock = (lesson && typeof lesson === "string" && lesson.trim())
+    ? `\n\nGROUNDING — this is the exact lesson the learner is reading right now. Treat it as the authoritative source and answer primarily from it:\n"""\n${lesson.slice(0, 6000)}\n"""\nIf a question goes beyond this lesson, say so briefly and steer back to the module. Never invent facts, APIs, model names, prices, or attributions that are not supported by this lesson or well-established public knowledge.`
+    : "";
+
+  const systemPrompt = `You are an AI tutor for the Imbila.AI OpenAI Academy. You teach mastery of ChatGPT, the OpenAI API, DALL-E, and AI agents. Currently teaching: ${module}. Be practical, demonstrate real prompt patterns, reference South African business use cases. Keep answers 2-3 paragraphs. If you are unsure or the lesson does not cover something, say so honestly rather than guessing.${lessonBlock}`;
 
   const messages = [
     { role: "system", content: systemPrompt },
